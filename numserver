@@ -2,25 +2,40 @@ import java.io.*;
 
 import java.net.*;
 
-public class App{
+public class numserver{
   int risposta==0;
         try{
-            System.out.println("server avviato");
-            ServerSocket server = new ServerSocket(3000);
+
+        double casuale = random.nextInt(100 - 1 +1) + 1;
+            System.out.println("server avviato");   
+            ServerSocket server = new ServerSocket(3000); 
 
             Socket s = server.accept();
-            
+
             BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
             DataOutputStream out = new DataOutputStream(s.getOutputStream());
 
             
-            String stringaRicevuta = in.readLine();
-            System.out.println("il client ha inviato"+ stringaRicevuta);
-
-            String stringModificata = stringaRicevuta.toUpperCase();
             
-            server.close();
-            s.close();
+            while(numero!=casuale){
+                int tentativi++;
+
+                System.out.println("indovina il numero:");
+                String numero = in.readLine();
+        
+                if(numero==casuale){
+                    System.out.println("congratulazione hai indovinato il numero in"+ tentativi + "tentativi" );
+                }else  if(numero<casuale){
+                    risposta=1;
+                    System.out.println("troppo piccolo");    
+
+                }else if(numero>casuale){                    
+                    risposta=2;
+                    System.out.println("troppo grande");
+                }
+            }
+            
+            system.exit(0);
 
         } catch (Exception e){
 
@@ -30,4 +45,3 @@ public class App{
 
         }
     }
-}
