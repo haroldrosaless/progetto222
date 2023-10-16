@@ -24,14 +24,14 @@ public class numserver{
                 String numero = in.readLine();
         
                 if(numero==casuale){
-                    System.out.println("congratulazione hai indovinato il numero in"+ tentativi + "tentativi" );
+                    System.out.println("congratulazioni hai indovinato il numero in"+ tentativi + "tentativi" );
                 }else  if(numero<casuale){
                     risposta=1;
-                    System.out.println("troppo piccolo");    
+                    
 
                 }else if(numero>casuale){                    
                     risposta=2;
-                    System.out.println("troppo grande");
+                  
                 }
             }
             
